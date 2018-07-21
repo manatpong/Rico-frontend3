@@ -48,17 +48,18 @@ export class MaintenanceApplianceComponent implements OnInit {
     const month = datetime.getUTCMonth() + 1;
     const year = datetime.getFullYear();
     const datetime_fix = year + '-' + month + '-' + day + ' ' + hours + ':' + minute;
-    this._debuggingService.sendRestartSystem(this.user_data['username'], datetime_fix,action).then((data) => {
-      console.log('Return',data)
-      const return_msg = data;
-      console.log(return_msg);
-      if(return_msg['action'] === 'None') {
-        alert(return_msg['status']);
-      }
-      else {
-        const dialog = this._dialog.open(CountdownTimerComponent);
-      }
-    });
+    // this._debuggingService.sendRestartSystem(this.user_data['username'], datetime_fix,action).then((data) => {
+    //   console.log('Return',data)
+    //   const return_msg = data;
+    //   console.log(return_msg);
+    //   if(return_msg['action'] === 'None') {
+    //     alert(return_msg['status']);
+    //   }
+    //   else {
+    //     const dialog = this._dialog.open(CountdownTimerComponent);
+    //   }
+    // });
+    const dialog = this._dialog.open(CountdownTimerComponent);
   }
 
 }

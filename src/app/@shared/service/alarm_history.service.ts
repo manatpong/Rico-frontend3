@@ -57,8 +57,5 @@ export class AlarmHistoryService {
                 }
 
             });
-
-
-
     }
 }

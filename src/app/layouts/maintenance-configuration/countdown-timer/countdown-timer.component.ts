@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   selector: 'app-countdown-timer',
   template: `
                 <div mat-dialog-content class="container">
-                <p>Shutdown in ..</p>
+                <p>Restarting in ..</p>
                 <p>{{ this.message }}</p>
                 </div>
                 <div class="overlay_page">&nbspdd</div>
@@ -41,7 +41,7 @@ export class CountdownTimerComponent{
 
   intervalId = 0;
   message = '';
-  seconds = 60;
+  seconds = 10;
 
   clearTimer() {
     clearInterval(this.intervalId);
@@ -85,6 +85,8 @@ export class CountdownTimerComponent{
     localStorage.removeItem('userData');
     this._authenticationService.fetchUser(null);
     window.location.href = '../../login';
+    // this.router.navigate(['/your-path']);
+    // window.top.close();
 
   }
 

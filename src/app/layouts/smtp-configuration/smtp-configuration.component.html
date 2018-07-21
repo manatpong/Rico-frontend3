@@ -20,11 +20,24 @@
           </div>
           <div class="container-col-two">
             <div class="container-col-two-row-one">
-              <div class="can-toggle">
+              <!-- <div class="can-toggle">
                 <input id="auth_enable" type="checkbox">
                 <label for="auth_enable">
-                  <div class="can-toggle__switch" data-checked="On" data-unchecked="Off"></div>
+                  <div class="can-toggle__switch" data-checked="On" data-unchecked="Off" (click)="toggle_auth()"></div>
                 </label>
+              </div> -->
+              <div class="switcher" [ngClass]="{auth_on: use_authentication == 1}">
+                <div class="switcher__toggle" [ngClass]="{ssl_checked: use_authentication == 1}"></div>
+
+                <div (click)="toggleAuth()">
+                  <input type="checkbox" name="auth" class="switcher__input switcher__input--normal">
+                  <label for="auth" class="switcher__label" id="off" [ngClass]="{checked_mode: use_authentication == 0} ">OFF</label>
+                </div>
+
+                <div (click)="toggleAuth()">
+                  <input type="checkbox" name="auth" class="switcher__input switcher__input--simulate">
+                  <label for="auth" class="switcher__label" id="on" [ngClass]="{checked_mode: use_authentication == 1}">ON</label>
+                </div>
               </div>
             </div>
             <div class="container-col-two-row-two">
@@ -37,50 +50,158 @@
         </div>
       </div>
     </div>
-    <div class="row-three">
+    <!-- <div class="row-three">
       <div class="container">
         <div class="inner-container">
           <div class="container-col-one">
-            <div class="text">TLS:
+            <div class="text">Protocol:
               <div class="sub-text">Internet Security</div>
             </div>
           </div>
           <div class="container-col-two">
             <div class="container-col-two-row-one">
               <div class="can-toggle">
-                <!-- <input id="a" type="checkbox">
-                <label for="a">
-                  <div class="can-toggle__switch" data-checked="On" data-unchecked="Off"></div>
-                  
-                </label> -->
-                <!-- <mat-button-toggle-group #group="matButtonToggleGroup">
-                    <mat-button-toggle value="TLS">
-                      <span class="text">TLS</span>
-                    </mat-button-toggle>
-                    <mat-button-toggle value="SSL">
-                      <span class="text">SSL</span>
-                    </mat-button-toggle>
-                  </mat-button-toggle-group> -->
-                <!-- <div class="example-selected-value">Selected value: {{group.value}}</div> -->
                 <input id="internet_protocol" type="checkbox">
                 <label for="internet_protocol">
-                  <div class="can-toggle__switch_tls" data-checked="TLS" data-unchecked="SSL"></div>
+                  <div class="can-toggle__switch_tls" data-checked='TLS' data-unchecked='SSL' (click)="toggleInternetSecurity()"></div>
+                </label>
+              </div>
+              <div class="can-toggle">
+                <input id="auth_enable" type="checkbox">
+                <label for="auth_enable">
+                  <div class="can-toggle__switch" data-checked="On" data-unchecked="Off"></div>
                 </label>
               </div>
             </div>
             <div class="container-col-two-row-two">
-                <div class="text">Use Security</div>
+                <div class="text">Use Protocol</div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="row-four">
+      <div class="container">
+        <div class="inner-container">
+          <div class="container-col-one">
+            <div class="text">Protocol:
+              <div class="sub-text">Internet Security</div>
+            </div>
+          </div>
+          <div class="container-col-two">
+            <div class="container-col-two-row-one">
+              <div class="switcher">
+                <div class="switcher__toggle" [ngClass]="{ssl_checked: set_ssl == 1}"></div>
+
+                <div (click)="toggleInternetSecurity()">
+                  <input type="checkbox" name="normal_mode" class="switcher__input switcher__input--normal">
+                  <label for="normal_mode" class="switcher__label" [ngClass]="{checked_mode: set_tls == 1}">TLS</label>
+                </div>
+
+                <div (click)="toggleInternetSecurity()">
+                  <input type="checkbox" name="normal_mode" class="switcher__input switcher__input--simulate" >
+                  <label for="normal_mode" class="switcher__label" [ngClass]="{checked_mode: set_ssl == 1}">SSL</label>
+                </div>
+              </div>
+            </div>
+            <div class="container-col-two-row-two">
+                <div class="text">Use Protocol</div>
               </div>
           </div>
         </div>
       </div>
     </div>
-    
   </div>
 
   <div class="col-two">
     <div class="container">
-      <app-smtp-email-setting></app-smtp-email-setting>
+      <!-- <app-smtp-email-setting></app-smtp-email-setting> -->
+      <div class="warpper2">
+        <div class="container_inner">
+      
+          <div class="header">
+            <div class="text">Email Setting</div>
+            <div class="icon-container">
+            </div>
+          </div>
+      
+          <div class="body">
+      
+            <div class="body-table">
+              <div class="body-table-row-one">
+                <div class="btable-col-one-row">
+                  <div class="text">
+                    User Name:
+                  </div>
+                </div>
+                <div class="btable-col-two-row">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [disabled]="this.use_authentication == 0 ? 1 : null" [(ngModel)]="set_username">
+                  </mat-form-field>
+                </div>
+                <div class="btable-col-one-row">
+                  <div class="text">
+                    Host Name:
+                  </div>
+                </div>
+                <div class="btable-col-two-row">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="sv_name">
+                  </mat-form-field>
+                </div>
+              </div>
+      
+              <div class="body-table-row-one">
+                <div class="btable-col-one-row">
+                  <div class="text">
+                    Password:
+                  </div>
+                </div>
+                <div class="btable-col-two-row">
+                  <mat-form-field class="example-full-width">
+                    <input type="password" matInput [disabled]="this.use_authentication == 0 ? 1 : null" class="set_password" [(ngModel)]="set_password">
+                  </mat-form-field>
+                </div>
+      
+                <div class="btable-col-one-row">
+                  <div class="text">
+                    SMTP Port:
+                  </div>
+                </div>
+                <div class="btable-col-two-row">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="set_port">
+                  </mat-form-field>
+                </div>
+              </div>
+      
+              <div class="body-table-row-one">
+                <div class="btable-col-one-row">
+                  <div class="text">
+                    &nbsp;
+                  </div>
+                </div>
+                <div class="btable-col-two-row">
+                  &nbsp;
+                </div>
+              </div>
+      
+              <div class="body-menu">
+                <div class="button-container">
+                  <button mat-raised-button (click)="sendEmailSetting()">
+                    <div class="text">Update</div>
+                  </button>
+      
+                  <button mat-raised-button>
+                    <div class="text" (click)="clearEmailSetting()"><span *ngIf="this.clear_data">Clear</span><span *ngIf="this.clear_data == false">Revert</span></div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
     </div>
   </div>
 </div>
