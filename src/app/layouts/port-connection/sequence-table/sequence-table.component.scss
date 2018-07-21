@@ -1,0 +1,181 @@
+.warpper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 95%;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        cursor: default;
+        .inner-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 95%;
+            height: 90%;
+            .header {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                height: 10%;
+                border-left: 4px solid #1457ba;
+                -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+                -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                box-sizing: border-box;         /* Opera/IE 8+ */
+                .text {
+                    padding-left: 15px;
+                    font-size: 14px;
+                    font-size: 0.8vw;
+                    // font-weight: 500;
+                    color: #3f51b5;
+                }
+            }
+            .body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 90%;
+               .table-header {
+                   display: flex;
+                   flex-direction: row;
+                   width: 100%;
+                   height: 15%;
+                   margin-top: auto;
+                   background: #1457ba;
+                   .row-one {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 10%;
+                        height: 100%;
+                        .text {
+                            font-size: 12.5px;
+                            font-size: 0.8vw;
+                            color: #fff;
+                        }
+                   }
+                   .row-two {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 75%;
+                        height: 100%;
+                        .text {
+                            font-size: 12.5px;
+                            font-size: 0.8vw;
+                            color: #fff;
+                        }
+                   }
+                   .row-three {
+                        display: flex;
+                        align-items: center;
+                        width: 15%;
+                        height: 100%;
+                        .text {
+                            padding-left: 15px;
+                            font-size: 12.5px;
+                            font-size: 0.8vw;
+                            color: #fff;
+                        }
+                   }
+               }
+               .table-body {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 80%;
+                    .table {
+                        width: 100%;
+                        height: 80px;
+                        overflow: auto;
+                        .table-col {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+                            height: 20px;
+                            margin: auto;
+                            .table-row-one {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 10%;
+                                height: 100%;
+                                .text {
+                                    font-size: 12px;
+                                    font-size: 0.8vw;
+                                }
+                           }
+                           .table-row-two {
+                                display: flex;
+                                align-items: center;
+                                width: 75%;
+                                height: 100%;
+                                .text {
+                                    font-size: 11px;
+                                    font-size: 0.8vw;
+                                }
+                           }
+                           .table-row-three {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 15%;
+                                height: 100%;
+                                .text-pending {
+                                    font-size: 13px;
+                                    font-size: 0.8vw;
+                                }
+                                .custom-color::ng-deep circle {
+                                    stroke: #3f51b5;
+                                  }
+                                .text-success {
+                                    font-size: 13px;
+                                    color: #1ab05e;
+                                    font-size: 1vw;
+                                }
+                                .text-failed {
+                                    font-size: 13px;
+                                    color: red;
+                                    font-size: 1vw;
+                                }
+                            }
+                        }
+                        .progress-row {
+                            font-weight: 500;
+                            color: #3f51b5;
+                        }
+                    }
+               }
+            }
+        }
+    }
+}
+
+#table::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: #F5F5F5;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#table::-webkit-scrollbar {
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#table::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #555555;
+}

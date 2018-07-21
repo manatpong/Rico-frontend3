@@ -1,0 +1,302 @@
+<div class="warpper">
+    <div class="container">
+      <div class="header">
+        <div class="text">SNMP Traps</div>
+        <div class="icon-container">
+          <mat-icon [matTooltip]="icon_info" matTooltipPosition="above">info</mat-icon>
+        </div>
+      </div>
+  
+      <div class="body">
+        <div class="body-menu">
+          <div class="menu-list-item-container">
+            <div class="list-item-icon">
+              <mat-icon>edit</mat-icon>
+            </div>
+  
+            <div class="list-item-text">
+              <div class="text">Edit</div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="body-table">
+          <div class="body-table-header">
+            <div class="row-one">
+              <div class="text">Status</div>
+            </div>
+            
+            <div class="row-two">
+              <div class="text">Event Name</div>
+            </div>
+            
+            <div class="row-three">
+              <div class="text">Monitored Object</div>
+            </div>
+            
+            <div class="row-four">
+              <div class="text">Value</div>
+            </div>
+            
+            <div class="row-five">
+              <div class="text">Trap OID</div>
+            </div>
+            
+            <div class="row-six">
+              <div class="text">Description</div>
+            </div>
+          </div>
+  
+          <div id="table" class="body-table-body">
+            <div class="body-table-container">
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="status-icon">
+                        <mat-icon>done</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">Interface Disconnected</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">Interface link status</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text"> </div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.1.1</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">Either network cable was disconnected, ICMP monitor failed to reach a monitored server, or LAN interface was manually disabled</div>
+                    </div>
+                </div>
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="status-icon">
+                        <mat-icon>done</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">Interface unassigned</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">Interface IP address</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text"> </div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.1.2</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">Interface IP address removed. Alerts when Internet connection is disabled, dialer is disconnected or LAN interface is unassigned</div>
+                    </div>
+                </div>
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="block-icon">
+                        <mat-icon>block</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">High memory utilization</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">Memory utilization</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text">> 90 %</div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.4.2</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">Memory utilization exceeded the threshold value</div>
+                    </div>
+                </div>
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="status-icon">
+                        <mat-icon>done</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">Low disk space</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">Free disk space</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text"><= 10 %</div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.2.1</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">Disk partition free space went below the threshold value</div>
+                    </div>
+                </div>
+            <div class="body-table-body-row">
+                    <div class="body-row-one">
+                        <div class="block-icon">
+                            <mat-icon>block</mat-icon>
+                        </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">High CPU utilization</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">CPU utilization</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text">>= 95 %</div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.3.1</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">CPU usage exceeded the threshold value</div>
+                    </div>
+                </div>
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="status-icon">
+                        <mat-icon>done</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">High CPU interrupts rate</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">CPU interrupts rate</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text">>= 20000000 interrupts/sec</div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.3.2</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">CPU interrupt rate exceeded the threshold value</div>
+                    </div>
+                </div>
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="status-icon">
+                        <mat-icon>done</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">High connection rate</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">Connection rate</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text">>= 3000 connections/sec</div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.1.3</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">New connection rate exceeded the threshold value</div>
+                    </div>
+                </div>
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="block-icon">
+                        <mat-icon>block</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">High concurrent connections</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">Concurrent connections</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text">>= 50000 connections</div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.1.4</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">The number of concurrent connections exceeded the threshold value</div>
+                    </div>
+                </div>
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="status-icon">
+                        <mat-icon>done</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">High Firewall throughput</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">Firewall throughput</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text">>= 1000 Mbps</div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.1.5</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">Firewall throughput exceeded the threshold value</div>
+                    </div>
+                </div>
+                <div class="body-table-body-row">
+                    <div class="body-row-one">
+                    <div class="block-icon">
+                        <mat-icon>block</mat-icon>
+                    </div>
+                    </div>
+                    <div class="body-row-two">
+                        <div class="text">High accepted packet rate</div>
+                    </div>
+                    <div class="body-row-three">
+                        <div class="text">Accepted packet rate</div>
+                    </div>
+                    <div class="body-row-four">
+                        <div class="text">>= 100000 packets/sec</div>
+                    </div>
+                    <div class="body-row-five">
+                        <div class="text">1.3.6.1.4.1.2620.1.2000.1.6</div>
+                    </div>
+                    <div class="body-row-six">
+                        <div class="text">Accepted packet rate exceeded the threshold value</div>
+                    </div>
+                </div>
+                <!-- dd -->
+                <div class="body-table-body-row">
+                        <div class="body-row-one">
+                        <div class="block-icon">
+                            <mat-icon>block</mat-icon>
+                        </div>
+                        </div>
+                        <div class="body-row-two">
+                            <div class="text">High accepted packet rate</div>
+                        </div>
+                        <div class="body-row-three">
+                            <div class="text">Accepted packet rate</div>
+                        </div>
+                        <div class="body-row-four">
+                            <div class="text">>= 100000 packets/sec</div>
+                        </div>
+                        <div class="body-row-five">
+                            <div class="text">1.3.6.1.4.1.2620.1.2000.1.6</div>
+                        </div>
+                        <div class="body-row-six">
+                            <div class="text">Accepted packet rate exceeded the threshold value</div>
+                        </div>
+                    </div>
+            </div>
+            
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>

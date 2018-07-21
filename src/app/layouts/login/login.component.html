@@ -1,0 +1,62 @@
+<div class="warpper">
+  <div class="login-container">
+    <div class="flex-one">
+      <div class="company-name">XENOPTICS LIMITED</div>
+    </div>
+    <div class="flex-two">
+      <div class="container">
+        <div class="column-one">
+          <div class="row-one">
+            <div class="text">Username:</div>
+          </div>
+          <div class="row-two">
+            <mat-form-field>
+              <input matInput placeholder="Enter username" type="text" name="username" class="form-control" [(ngModel)]="model.username"
+                #username="ngModel" (click)="this.error_message = undefined">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="column-two">
+          <div class="row-one">
+            <div class="text">Password:</div>
+          </div>
+          <div class="row-two">
+            <mat-form-field>
+              <input matInput placeholder="Enter password" type="password" name="password" [(ngModel)]="model.password" #password="ngModel"
+                (keyup)="catchEnter($event)" (click)="this.error_message = undefined">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="column-five">
+          <div class="row-one">
+            <div class="checkbox-container">
+              <mat-checkbox color="primary" [(ngModel)]="is_remember">Remember me</mat-checkbox>
+            </div>
+          </div>
+          <div class="row-two">
+            <div class="forgot-password-container">
+              <div class="text">Forgot password?</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-four">
+          <div class="row-one">
+            <div class="login-button-container">
+              <button mat-button id="login-button" class="button-style" color="primary" (click)="login()" [attr.disabled]="validateLoginButton() === false ? true : null"
+                disabled>Log In</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-three">
+          <div class="row-one" *ngIf="this.error_message !== undefined">
+            <div class="text">{{ this.error_message }}</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

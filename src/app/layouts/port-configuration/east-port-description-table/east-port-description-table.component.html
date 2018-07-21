@@ -1,0 +1,47 @@
+<div class="warpper">
+
+  <div class="container">
+    <div class="table">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="port_number">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> East Port </th>
+          <td mat-cell *matCellDef="let element" (click)="changeSelectedEastPort(element.port_number)"> {{ element.port_number }} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Port Description </th>
+          <td mat-cell *matCellDef="let element" (click)="changeSelectedEastPortDesc(element.description)"> {{ element.description }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+    </div>
+
+
+    <div class="footer">
+      <div class="row-one">
+        <mat-form-field class="styled-form-field">
+          <input type="number" matInput value="{{ this.selected_east_port }}" [(ngModel)]="selected_east_port" (ngModelChange)="changeSelectedEastPort()"/>
+          <mat-placeholder class="placeholder">Port number</mat-placeholder>
+        </mat-form-field>
+      </div>
+
+      <div class="row-two">
+        <mat-form-field class="styled-form-field">
+          <input type="text" matInput value="{{ this.selected_east_port_desc }}" [(ngModel)]="selected_east_port_desc" (ngModelChange)="changeSelectedEastPortDesc()">
+          <mat-placeholder class="placeholder">Description</mat-placeholder>
+        </mat-form-field>
+      </div>
+
+      <div class="row-three">
+        <button mat-raised-button (click)="updateEastDescription()" [disabled]="unlockUpdate()">Update</button>
+      </div>
+    </div>
+  </div>
+
+</div>

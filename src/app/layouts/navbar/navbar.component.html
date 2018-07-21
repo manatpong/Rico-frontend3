@@ -1,0 +1,167 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="isHandset ? 'dialog' : 'navigation'" [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+    opened="true" disableClose="true" *ngIf="this.current_user !== null">
+
+    <mat-toolbar class="styled-mat-toolbar">
+      <div class="company-logo-container">
+        <img src="{{ this.assets_path }}xenoptics-logo.png" class="company-logo" />
+      </div>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a id="dashboard" mat-list-item routerLink="" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'dashboard' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">dashboard</mat-icon>Dashboard</a>
+
+      <a id="port_connection" mat-list-item routerLink="/port_connection" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'port_connection' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">settings_input_component</mat-icon>Port Connection</a>
+
+      <a id="connection_queue" mat-list-item routerLink="/connection_queue" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'connection_queue' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">format_list_numbered</mat-icon>Connection Queue</a>
+
+      <a id="debugging" mat-list-item routerLink="/debugging" (click)="selectMenu($event)" *ngIf="this.enable_debug" [ngClass]="this.selected_menu == 'debugging' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">bug_report</mat-icon>Debugging</a>
+
+      <div class="menu-list-item">
+        <div class="text">Logs & Monitoring</div>
+      </div>
+
+      <a id="current_connection" mat-list-item routerLink="/current_connection" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'current_connection' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">settings_input_component</mat-icon>Current Connection</a>
+
+      <a id="connection_history" mat-list-item routerLink="/connection_history" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'connection_history' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">equalizer</mat-icon>Connection History</a>
+
+      <a id="alarm_history" mat-list-item routerLink="/alarm_history" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'alarm_history' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">priority_high</mat-icon>Alarm History</a>
+
+      <div class="menu-list-item">
+        <div class="text">Configurations</div>
+      </div>
+
+      <a id="port_configuration" mat-list-item routerLink="/port_configuration" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'port_configuration' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">settings_input_hdmi</mat-icon>Port Configuration</a>
+
+      <a id="alarm_configuration" mat-list-item routerLink="" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'alarm_configuration' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">report_problem</mat-icon>Alarm Setting</a>
+
+      <a id="snmp_configuration" mat-list-item routerLink="/snmp_configuration" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'snmp_configuration' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">settings_ethernet</mat-icon>SNMP</a>
+
+      <a id="smtp_configuration" mat-list-item routerLink="/smtp_configuration" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'smtp_configuration' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">settings_ethernet</mat-icon>SMTP</a>
+
+      <a id="maintenance_configuration" mat-list-item routerLink="/maintenance_configuration" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'maintenance_configuration' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">build</mat-icon>System Operation</a>
+
+      <a id="security_configuration" mat-list-item routerLink="/security_configuration" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'security_configuration' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">security</mat-icon>Security</a>
+
+      <a id="settings_configuration" mat-list-item routerLink="/system_configuration" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'settings_configuration' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">settings</mat-icon>System</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" *ngIf="this.current_user !== null">
+      <div class="robot-mode-container" *ngIf="this.enable_debug">
+        <div class="row-one">
+          <div class="text">Robot mode</div>
+        </div>
+        <div class="row-two">
+          <div class="mode-container">
+            <div class="sub-row-one">
+              <div *ngIf="this.current_robot_mode === 'Normal'" class="normal-mode"></div>
+              <div *ngIf="this.current_robot_mode === 'Simulation'" class="simulation-mode"></div>
+              <div *ngIf="this.current_robot_mode === 'Unactive'" class="unactive-mode"></div>
+            </div>
+            <div class="sub-row-two">
+              <div class="text-container">
+                <div class="text">{{ this.current_robot_mode }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="robot-state-container" *ngIf="this.enable_debug">
+        <div class="row-one">
+          <div class="text">Robot state</div>
+        </div>
+        <div class="row-two">
+          <div class="mode-container">
+
+            <div class="sub-row-one">
+              <div *ngIf="this.current_robot_state === 'Idle'" class="normal-mode"></div>
+              <div *ngIf="this.current_robot_state === null || this.current_robot_state === 'Unactive' || this.current_robot_state === 'Error'" class="unactive-mode"></div>
+              <div *ngIf="this.current_robot_state === 'Preparing'
+               || this.current_robot_state === 'Homing'
+               || this.current_robot_state === 'Working'
+               || this.current_robot_state === 'Robot_mode_request'
+               || this.current_robot_state === 'Send_motor_param' 
+               || this.current_robot_state === 'Send_begin_table' 
+               || this.current_robot_state === 'Send_sequence' 
+               || this.current_robot_state === 'Send_end_table' 
+               || this.current_robot_state === 'Send_theta_control'
+               || this.current_robot_state === 'Read_theta_calculation'
+               || this.current_robot_state === 'Send_validate_data'
+               || this.current_robot_state === 'Read_validate_data'" class="simulation-mode"></div>
+            </div>
+
+            <div class="sub-row-two">
+              <div class="text-container">
+                <div class="text" *ngIf="this.current_robot_state === 'Idle' 
+                || this.current_robot_state === 'Homing' 
+                || this.current_robot_state === 'Working' 
+                || this.current_robot_state === 'Unactive' 
+                || this.current_robot_state === 'Error'">{{ this.current_robot_state }}</div>
+              
+                <div class="text" *ngIf="this.current_robot_state === 'Preparing'
+                || this.current_robot_state === 'Robot_mode_request'
+                || this.current_robot_state === 'Send_robot_mode_request'
+                || this.current_robot_state === 'Send_motor_param' 
+                || this.current_robot_state === 'Send_begin_table' 
+                || this.current_robot_state === 'Send_sequence' 
+                || this.current_robot_state === 'Send_end_table' 
+                || this.current_robot_state === 'Send_theta_control'
+                || this.current_robot_state === 'Read_theta_calculation'
+                || this.current_robot_state === 'Read_validate_data'">Preparing</div>
+              
+                <div class="text" *ngIf="this.current_robot_state === 'Send_validate_data'">Validate data</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="robot-mode-container auto_random" *ngIf="this.enable_debug">
+        <div class="row-one">
+          <div class="text">Auto Random</div>
+        </div>
+        <div class="row-two">
+          <div class="mode-container">
+            <div class="sub-row-one">
+              <div *ngIf="this.autoStatusActive" class="normal-mode"></div>
+              <div *ngIf="this.autoStatusActive === false" class="simulation-mode"></div>
+            </div>
+            <div class="sub-row-two">
+              <div class="text-container">
+                <div *ngIf="this.autoStatusActive" class="text">Active</div>
+                <div *ngIf="this.autoStatusActive === false" class="text">Unable</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row-one">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+        <div class="row-two">
+          <div class="text">{{ this.current_user['username'] }}</div>
+        </div>
+        <div class="row-three">
+          <div class="text" (click)="logout()">Log out</div>
+        </div>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

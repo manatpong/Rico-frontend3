@@ -1,0 +1,14 @@
+<div class="warpper">
+  <div class="container" *ngIf="this.operation_data !== null && this.operation_data['error'] !== null">
+
+    <div class="row-one">
+      <div class="text">{{ this.operation_data['error'] }}</div>
+    </div>
+
+    <div class="row-two">
+      <div class="icon-container">
+        <mat-icon>error</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

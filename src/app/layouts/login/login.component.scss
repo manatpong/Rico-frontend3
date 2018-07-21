@@ -1,0 +1,275 @@
+.warpper {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    background: #e9ebee;
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: 20px;
+        border: 1px solid #e5e5e5;
+        background: #fff;
+        // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+        overflow: hidden; // Labtop screen
+        @media only screen and (min-device-width: 640px) {
+            width: 670px;
+            height: 500px;
+        } // Mobile screen
+        @media only screen and (max-device-width: 640px) {
+            width: 80vw;
+            height: 400px;
+        }
+        .flex-one {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 35%;
+            background-image: url('../../../assets/Network-banner.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            .company-name {
+                cursor: default;
+                color: white; // Labtop screen
+                @media only screen and (min-device-width: 640px) {
+                    font-size: 46px;
+                } // Mobile screen
+                @media only screen and (max-device-width: 640px) {
+                    font-size: 22px;
+                }
+            }
+        }
+        .flex-two {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 75%;
+            width: 100%;
+            .container {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                height: 75%;
+                .column-one {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 25%;
+                    .row-one {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 25%;
+                        height: 100%;
+                        margin-left: auto;
+                        mat-icon {
+                            font-size: 40px;
+                            padding-bottom: 12.5px;
+                        }
+                        .text {
+                            cursor: default;
+                            color: #808080;
+                            font-size: 16px; // Mobile screen
+                            @media only screen and (max-device-width: 640px) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .row-two {
+                        display: flex;
+                        align-items: center;
+                        width: 50%;
+                        height: 100%;
+                        margin-right: auto;
+                        mat-form-field {
+                            width: 100%;
+                        }
+                    }
+                }
+                .column-two {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 25%;
+                    .row-one {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 25%;
+                        height: 100%;
+                        margin-left: auto;
+                        .text {
+                            cursor: default;
+                            color: #808080;
+                            font-size: 16px;
+                            @media only screen and (max-device-width: 640px) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .row-two {
+                        display: flex;
+                        align-items: center;
+                        width: 50%;
+                        height: 100%;
+                        margin-right: auto;
+                        mat-form-field {
+                            width: 100%;
+                        }
+                    }
+                }
+                .column-three {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 10%;
+                    .row-one {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 40%;
+                        height: 100%;
+                        border-radius: 20px;
+                        background: #d50000;
+                        .text {
+                            color: #fff;
+                            font-weight: 500;
+                            font-size: 14px;
+                        }
+                    }
+
+                }
+                .column-four {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 30%;
+                    .row-one {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                        .login-button-container {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 50%;
+                            height: 100%;
+                            button {
+                                font-size: 18px;
+                            }
+                            #login-button:disabled {
+                                background-color: rgba(0, 0, 0, .13);
+                            }
+                            #login-button:not(disabled) {
+                                background-color: #3f51b5;
+                                color: #fff;
+                            }
+                            .button-style {
+                                width: 150px;
+                                height: 50px;
+                                border-radius: 30px;
+                            }
+                        }
+                        .error-dialog-container {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 50%;
+                            height: 100%;
+                            .hide {
+                                visibility: hidden;
+                            }
+                        }
+                    }
+                }
+                .column-five {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 10%;
+                    .row-one {
+                        width: 50%;
+                        height: 100%;
+                        .checkbox-container {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 50%;
+                            height: 100%;
+                            margin-left: 35%;
+                            mat-checkbox {
+                                color: #949494;
+                            }
+                            mat-checkbox:hover {
+                                color: #3f51b5;
+                            }
+                        }
+                    }
+                    .row-two {
+                        width: 50%;
+                        height: 100%;
+                        .forgot-password-container {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 50%;
+                            height: 100%;
+                            margin-left: 30%;
+                            .text {
+                                font-size: 16px;
+                                color: #949494;
+                            }
+                            .text:hover {
+                                cursor: pointer;
+                                color: #3f51b5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+ :host /deep/ {
+    // Labtop screen
+    @media only screen and (min-device-width: 640px) {
+        md-form-field.mat-form-field {
+            width: 420px;
+        }
+    } // Mobile screen
+    @media only screen and (max-device-width: 640px) {
+        md-form-field.mat-form-field {
+            width: 170px;
+            font-size: 12px;
+        }
+    }
+    md-card {
+        border-radius: 10px;
+        background: #ec407a;
+        p {
+            color: white;
+            cursor: default; // Labtop screen
+            @media only screen and (min-device-width: 640px) {
+                font-size: 10px;
+            } // Mobile screen
+            @media only screen and (max-device-width: 640px) {
+                font-size: 8px;
+            }
+        }
+    }
+}

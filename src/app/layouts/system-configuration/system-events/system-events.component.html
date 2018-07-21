@@ -1,0 +1,26 @@
+<div class="warpper">
+
+  <div class="container">
+    <div class="col-one">
+      <div class="text">Events</div>
+    </div>
+
+    <div class="col-two">
+      <div style="display: block; width: 100%; height: 100%;">
+        <canvas baseChart width="1:2"
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColors"
+                ></canvas>
+      </div>
+    </div>
+
+    <div class="col-three">
+        <div class="text">Averange events status: <div class="status-text">Good</div></div>
+    </div>
+  </div>
+
+</div>

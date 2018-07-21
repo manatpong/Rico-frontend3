@@ -1,0 +1,433 @@
+.warpper {
+    width: 87vw;
+    height: 100%;
+    .col-one {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1rem;
+      width: 100%;
+      height: 80px;
+      .row-one {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 100%;
+        .row-one-col-one {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 40%;
+          .text {
+            padding-left: 50px;
+            font-size: 24px;
+          }
+        }
+        .row-one-col-two {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 60%;
+          .text {
+            padding-left: 50px;
+            font-size: 32px;
+            color: #3f51b5;
+          }
+        }
+      }
+      .row-two {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 100%;
+        .container {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          width: 90%;
+          height: 90%;
+          border-radius: 4px;
+          background: #fff;          
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+          .inner-container {
+            display: flex;
+            flex-direction: column;
+            width: 95%;
+            height: 90%;
+            .container-col-one {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              height: 40%;
+              border-left: 4px solid #1457ba;
+              -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+              -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+              box-sizing: border-box;         /* Opera/IE 8+ */
+              .text {
+                  display: flex;
+                  align-items: center;
+                  padding-left: 10px;
+                  font-size: 14px;
+                  font-weight: 500;
+                  color: #3f51b5;
+                  .sub-text {
+                    padding-left: 5px;
+                    font-size: 13px;
+                    color: black;
+                  }
+              }
+            }
+            .container-col-two {
+              display: flex;
+              flex-direction: row;
+              width: 100%;
+              height: 60%;
+              .container-col-two-row-one {
+                display: flex;
+                align-items: center;
+                width: 30%;
+                height: 100%;
+                .can-toggle {
+                  padding-left: 10px;
+                }
+              }
+              .container-col-two-row-two {
+                display: flex;
+                align-items: center;
+                width: 20%;
+                height: 100%;
+                .text {
+                  font-weight: 500;
+                  font-size: 18px;
+                }
+              }
+              .container-col-two-row-three {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                .text {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .col-two {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 200px;
+      .container {
+        width: 90%;
+        height: 90%;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+    }
+    .col-three {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 200px;
+      .container {
+        width: 90%;
+        height: 90%;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+    }
+    .col-four {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 250px;
+      .container {
+        width: 90%;
+        height: 90%;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+    }
+}
+
+
+
+@mixin can-toggle-branding(
+  $can-toggle-off-color: #777, 
+  $can-toggle-on-color: #5fc054,
+  $can-toggle-inactive-text: rgba(white, 0.5),
+  $can-toggle-transition: cubic-bezier(0,1,0.5,1)
+) {
+  
+  input[type="checkbox"] {
+    
+    &[disabled] ~ label {
+      color: rgba($can-toggle-off-color, 0.5);
+    }
+    
+    &:focus ~ label, &:hover ~ label {
+      .can-toggle__switch {
+        background-color: $can-toggle-off-color;
+        &:after { color: darken($can-toggle-off-color, 10%); }
+      }
+    }
+    &:hover ~label { color: darken($can-toggle-off-color, 5%); }
+    &:checked {
+      ~ label {
+        &:hover { color: darken($can-toggle-on-color, 3%); }
+        
+        .can-toggle__switch {
+          background-color: lighten($can-toggle-on-color, 5%);
+          &:after { color: darken($can-toggle-on-color, 5%); }
+        }
+      }
+      
+      &:focus, &:hover {
+        ~ label {
+          .can-toggle__switch {
+            background-color: $can-toggle-on-color;
+            &:after { color: darken($can-toggle-on-color, 10%); }
+          }
+        } 
+      }
+    }
+  }
+  
+  label {
+    
+    .can-toggle__label-text { flex: 1; }
+    
+    .can-toggle__switch {
+      cursor: pointer;
+      transition: background-color 0.3s $can-toggle-transition;
+      background: lighten($can-toggle-off-color, 5%);
+      &:before { color: $can-toggle-inactive-text; }
+      &:after {
+        // Autoprefixer choked here, so making the prefixes explicit
+        -webkit-transition: -webkit-transform 0.3s $can-toggle-transition;
+        transition: transform 0.3s $can-toggle-transition;
+        color: $can-toggle-off-color; 
+      }
+    }
+    
+  }
+}
+
+@mixin can-toggle-appearance 
+( 
+  $can-toggle-width: 80px,
+  $can-toggle-height: 25px,
+  $can-toggle-border-radius: 4px,
+  $can-toggle-offset: 2px,
+  $can-toggle-label-font-size: 14px,
+  $can-toggle-switch-font-size: 12px,
+  $can-toggle-shadow: 0 3px 3px rgba(black, 0.4)
+){
+  $can-toggle-switch-width: $can-toggle-width/2;
+  
+  input[type="checkbox"] {
+
+    &:focus ~ label, &:hover ~ label {
+      .can-toggle__switch {
+        &:after { box-shadow: $can-toggle-shadow; } 
+      }
+    }
+    
+    &:checked {
+      ~ label {
+        .can-toggle__switch {
+          &:after { transform: translate3d($can-toggle-width - ($can-toggle-switch-width + $can-toggle-offset),0,0); }  
+        }
+      }
+      &:focus, &:hover {
+        ~ label {
+          .can-toggle__switch { &:after { box-shadow: $can-toggle-shadow; } }
+        } 
+      }
+    }
+  }
+  
+  label {
+    font-size: $can-toggle-label-font-size;
+    
+    .can-toggle__switch {
+      height: $can-toggle-height;
+      flex: 0 0 $can-toggle-width;
+      border-radius: $can-toggle-border-radius;
+      
+      &:before {
+        left: $can-toggle-width/2;
+        font-size: $can-toggle-switch-font-size; 
+        line-height: $can-toggle-height;
+        width: $can-toggle-width/2;
+        padding: 0 12px;
+      }
+      
+      &:after {
+        top: $can-toggle-offset; left: $can-toggle-offset;
+        border-radius: $can-toggle-border-radius/2;
+        width: $can-toggle-switch-width - $can-toggle-offset; 
+        line-height: $can-toggle-height - ($can-toggle-offset*2);
+        font-size: $can-toggle-switch-font-size;
+      }
+      
+      &:hover {
+        &:after { box-shadow: $can-toggle-shadow; }
+      }
+    } 
+  }
+}
+
+
+
+.can-toggle {
+  position: relative;
+  *, *:before, *:after { box-sizing: border-box; }
+  //overflow: hidden;
+  
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    top: 0; left: 0;
+    
+    &[disabled] ~ label {
+      pointer-events: none;
+      .can-toggle__switch { opacity: 0.4; }
+    }
+    
+    &:checked {
+      ~ label {
+        
+        .can-toggle__switch {
+          
+          &:before {
+            content: attr(data-unchecked);
+            left: 0;
+          }
+        
+          &:after {
+            content: attr(data-checked);
+          }  
+        }
+      }
+      
+      &:focus, &:hover {
+        ~ label {
+        } 
+      }
+    }
+  }
+  
+  label {
+    user-select: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    .can-toggle__label-text { 
+      flex: 1;
+      padding-left: 32px;
+    }
+    
+    .can-toggle__switch {
+      position: relative;
+      
+      &:before {
+        content: attr(data-checked);
+        position: absolute;
+        top: 0;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      
+      &:after {
+        content: attr(data-unchecked);
+        position: absolute;
+        z-index: 5;
+        text-transform: uppercase;
+        text-align: center;
+        background: white;
+        transform: translate3d(0,0,0);
+      }
+
+    }
+    
+  }
+  
+  // Default values for .can-toggle class
+  @include can-toggle-branding; 
+  @include can-toggle-appearance; 
+  
+  // Create toggles of different sizes by overriding the can-toggle-appearance mixin defaults
+  &.can-toggle--size-small {
+    @include can-toggle-appearance
+    (
+      90px, // Toggle width
+      28px,  // Toggle height
+      2px,   // Toggle border radius
+      1px,   // Offset (distance btw switch and box)
+      13px,  // Label font size
+      10px,  // Switch font size
+      0 2px 2px rgba(black, 0.4) // Switch shadow on hover/focus
+    ); 
+  }
+  
+  &.can-toggle--size-large {
+    @include can-toggle-appearance
+    (
+      160px, // Toggle width
+      50px,  // Toggle height
+      4px,   // Toggle border radius
+      2px,   // Offset (distance btw switch and box)
+      14px,  // Label font size
+      14px,  // Switch font size
+      0 4px 4px rgba(black, 0.4) // Switch shadow on hover/focus
+    ); 
+  }
+  
+  // Or re-brand the toggle for different applications
+  &.demo-rebrand-1 {
+    @include can-toggle-branding
+    (
+      #b53e74,  // Off state color
+      #3d9c72,  // On state color
+      rgba(white, 0.6),  // Off state text color
+      ease-in-out  // Transition timing function
+    ); 
+  }
+  
+  &.demo-rebrand-2 {
+    @include can-toggle-branding
+    (
+      #444,  // Off state color
+      #69be28,  // On state color
+      rgba(white, 0.7),  // Off state text color
+      cubic-bezier(0.860, 0.000, 0.070, 1.000)  // Transition timing function
+    );
+    @include can-toggle-appearance
+    (
+      120px, // Toggle width
+      60px,  // Toggle height
+      60px,   // Toggle border radius
+      2px,   // Offset (distance btw switch and box)
+      13px,  // Label font size
+      13px,  // Switch font size
+      0 4px 4px rgba(black, 0.4) // Switch shadow on hover/focus
+    ); 
+  }
+  
+}

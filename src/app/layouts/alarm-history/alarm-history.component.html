@@ -1,0 +1,72 @@
+<div class="warpper">
+  <div class="header">
+    <div class="row-one">
+      <div class="row-one-col-one">
+        <div class="text">Menu: Alarm History</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="text">XSOS-288</div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="east">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> East </th>
+        <td mat-cell *matCellDef="let element"> {{element.east}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="east_desc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.east_desc}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="west">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> West </th>
+        <td mat-cell *matCellDef="let element"> {{element.west}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="west_desc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.west_desc}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="err_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Error ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.err_id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="err_desc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.err_desc}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="timestamp">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Timestamp </th>
+          <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
+        </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+
+  </div>
+
+  <div class="footer">
+    <button mat-raised-button class="styled-button" (click)="exportCSV()">Export to CSV</button>
+  </div>
+
+</div>

@@ -1,0 +1,100 @@
+<div class="warpper">
+
+  <div class="col-one">
+
+    <div class="row-one">
+      <div class="row-one-col-one">
+        <div class="text">Menu: Dashboard</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="text">XSOS-288</div>
+      </div>
+    </div>
+
+    <div class="row-two">
+      <div class="row-one-col-one">
+        <div class="text">Software Current Version</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="container">
+          <div class="text">1.2.1</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-three">
+      <div class="row-one-col-one">
+        <div class="text">Software Previous Version</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="container">
+          <div class="text">1.2.0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-four">
+      <div class="row-one-col-one">
+        <div class="text">Robot Status</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="container">
+          <div class="container-row-one">
+            <div class="available-status"></div>
+          </div>
+          <div class="container-row-two">
+            <div class="text">Active</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-five">
+      <div class="row-one-col-one">
+        <div class="text">Available Port</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="container">
+          <div class="container-row-one">
+            <div class="available-status"></div>
+          </div>
+          <div class="container-row-two">
+            <div class="text">{{ this._totalConnection.available_port }} Port(s)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-two">
+    <div class="col-two-row-one">
+      <div class="container">
+        <app-operation-and-connection-log></app-operation-and-connection-log>
+      </div>
+    </div>
+    <div class="col-two-row-two">
+      <div class="container">
+        <app-total-connection></app-total-connection>
+      </div>
+    </div>
+    <div class="col-two-row-three">
+      <div class="container">
+        <app-system-health></app-system-health>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-three">
+    <div class="container">
+      <app-front-panel></app-front-panel>
+    </div>
+  </div>
+
+  <div class="col-four">
+    <div class="container">
+      <app-system-summary></app-system-summary>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="warpper">
+
+  <div class="container">
+    <div class="col-one">
+      <div class="text">Disk Usage</div>
+    </div>
+
+    <div class="col-two">
+      <div style="display: block; width: 100%; height: 100%;">
+        <canvas baseChart width=1:2 
+        [data]="doughnutChartData" 
+        [labels]="doughnutChartLabels" 
+        [chartType]="doughnutChartType"
+        [colors]="doughnutChartColors"                
+        [options]="doughnutChartOptions">
+        </canvas>
+      </div>
+    </div>
+
+    <div class="col-three">
+      <div class="row-one">
+        <div class="sub-col-one">
+          <div class="text">4.3 GB used</div>
+        </div>
+        <div class="sub-col-two">
+          <div class="text">5.7 GB free</div>
+        </div>
+      </div>
+
+      <div class="row-two">
+        <div class="text">Total Disk Usage:</div>
+        <div class="status-text">43 %</div>
+      </div>
+    </div>
+  </div>
+
+</div>

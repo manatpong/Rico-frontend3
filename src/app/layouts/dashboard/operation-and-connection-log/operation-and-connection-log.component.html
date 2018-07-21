@@ -1,0 +1,85 @@
+<div class="warpper">
+  <div class="container">
+
+    <div class="header">
+      <div class="text">Latest Operation & Connection Log</div>
+    </div>
+
+    <div class="body">
+      <div class="col-one">
+
+        <div class="sub-col-one">
+          <div class="row-one">
+            <div class="sub-row-one-col-one">
+              <div class="text">Operation Time</div>
+            </div>
+            <div class="sub-row-one-col-two">
+              <div class="container">
+                <div class="text" *ngIf="this.operation_data['operation_time'] !== 'No data'">{{ this.operation_data['operation_time'] }} sec</div>
+                <div class="text" *ngIf="this.operation_data['operation_time'] === 'No data'">{{ this.operation_data['operation_time'] }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row-two">
+            <div class="sub-row-one-col-one">
+              <div class="text">Completion</div>
+            </div>
+            <div class="sub-row-one-col-two">
+              <div class="container">
+                <div class="text" *ngIf="this.operation_data['progress'] !== 'No data'">{{ this.operation_data['progress'] }}%</div>
+                <div class="text" *ngIf="this.operation_data['progress'] === 'No data'">{{ this.operation_data['progress'] }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-col-two">
+          <div class="row-one">
+            <div class="sub-row-one-col-one">
+              <div class="text">East Port</div>
+            </div>
+            <div class="sub-row-one-col-two">
+              <div class="container">
+                <div class="text">{{ this.operation_data['east'] }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row-two">
+            <div class="sub-row-one-col-one">
+              <div class="text">West Port</div>
+            </div>
+            <div class="sub-row-one-col-two">
+              <div class="container">
+                <div class="text">{{ this.operation_data['west'] }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-two">
+        <div class="sub-row-one">
+          <div class="text">Date & Time</div>
+        </div>
+        <div class="sub-row-two">
+          <div class="text">East & West</div>
+        </div>
+      </div>
+
+      <!-- TODO TABLE -->
+      <div class="col-three">
+        <div class="table-container" *ngIf="this.connection_history_data">
+          <div class="table-col" *ngFor="let element of this.connection_history_data; trackBy: trackByFn">
+            <div class="table-row-one">
+              <div class="text">{{ element.timestamp }}</div>
+            </div>
+            <div class="table-row-two">
+              <div class="text">E{{ element.east }}, W{{ element.west }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

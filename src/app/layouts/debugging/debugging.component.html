@@ -1,0 +1,162 @@
+<div class="warpper">
+
+  <div class="col-one">
+    <div class="row-one">
+      <div class="row-one-col-one">
+        <div class="text">Menu: Debugging</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="text">XSOS-288</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-two">
+    <div class="container">
+      <div class="inner-container">
+        <div class="header">
+          <div class="text">Debugging</div>
+        </div>
+        <div class="body">
+          <div class="col-one">
+
+            <div class="sub-row">
+              <mat-checkbox color="primary" [(ngModel)]="active_clear_queue">Active clear queue</mat-checkbox>
+              <button mat-raised-button [disabled]="this.active_clear_queue === false ? true : null" (click)="openDialogClearQueue()">Clear queue</button>
+            </div>
+
+            <div class="sub-row">
+              <div class="flex-one">
+                <div class="text">{{ this.robot_model }} mode</div>
+              </div>
+              <div class="flex-two">
+                <div class="switcher">
+                  <div class="switcher__toggle" [ngClass]="{simulate_checked: simulate_mode}" *ngIf="this.robot_model !== 'Unactive'"></div>
+
+                  <div (click)="changeRobotMode(0)">
+                    <input type="checkbox" name="normal_mode" class="switcher__input switcher__input--normal" [(ngModel)]="normal_mode">
+                    <label for="normal_mode" class="switcher__label" [ngClass]="{checked_mode: normal_mode}">Normal</label>
+                  </div>
+
+                  <div (click)="changeRobotMode(1)">
+                    <input type="checkbox" name="normal_mode" class="switcher__input switcher__input--simulate" [(ngModel)]="simulate_mode">
+                    <label for="normal_mode" class="switcher__label" [ngClass]="{checked_mode: simulate_mode}">Simulation</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sub-row">
+              <div class="rand-flex-one">
+                <mat-form-field>
+                  <input matInput placeholder="Random rounds" [(ngModel)]="random_rounds">
+                </mat-form-field>
+              </div>
+              <div class="rand-flex-two">
+                <div class="button-container">
+                  <button mat-raised-button class="connect-button" [disabled]="unlockRandom()" (click)="sendRandom('connect')">Connect</button>
+                  <button mat-raised-button class="disconnect-button" [disabled]="unlockRandom()" (click)="sendRandom('disconnect')">Disconnect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-two">
+            <div class="sub-row-one">
+              <div class="sub-row-one-col">
+                <div class="flex-one">
+                  <div class="text">Random with condition</div>
+                </div>
+                <div class="flex-two">
+                  <mat-form-field>
+                    <input matInput placeholder="Random rounds" [(ngModel)]="random_condition_rounds">
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="sub-row-two-col">
+                <div class="flex-one">
+                  <div class="switcher">
+                    <div class="switcher__toggle" [ngClass]="{disconnect_checked: action_condition === 'disconnect'}"></div>
+
+                    <div (click)="this.action_condition = 'connect'">
+                      <input type="checkbox" name="normal_mode" class="switcher__input switcher__input--normal">
+                      <label for="normal_mode" class="switcher__label" [ngClass]="{checked_mode: action_condition === 'connect'}">Connect</label>
+                    </div>
+
+                    <div (click)="this.action_condition = 'disconnect'">
+                      <input type="checkbox" name="normal_mode" class="switcher__input switcher__input--simulate">
+                      <label for="normal_mode" class="switcher__label" [ngClass]="{checked_mode: action_condition === 'disconnect'}">Disconnect</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex-two">
+                  <mat-form-field>
+                    <input matInput placeholder="Probability at least" [(ngModel)]="action_number_condition">
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="sub-row-three-col">
+                <div class="flex-one">
+                  <div class="row-one">
+                    <div class="text">Connect</div>
+                  </div>
+                  <div class="row-two">
+                    <div class="text">{{ this.connect_probability }}%</div>
+                  </div>
+                </div>
+
+                <div class="flex-two">
+                  <mat-slider (click)="fetchConditionPercentage()" [(ngModel)]="disconnect_probability" min="0" max="100" step="1" thumbLabel="true"></mat-slider>
+                </div>
+
+                <div class="flex-three">
+                  <div class="row-one">
+                    <div class="text">Disconnect</div>
+                  </div>
+                  <div class="row-two">
+                    <div class="text">{{ this.disconnect_probability }}%</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sub-row-four-col">
+                <button mat-raised-button class="connect-button" [disabled]="unlockRandomWithCondition()" (click)="randomWithCondition()">Random</button>
+              </div>
+            </div>
+
+            <div class="sub-row-two">
+              <div class="col-one">
+                <mat-checkbox color="primary" [(ngModel)]="active_clear_database">Active clear database</mat-checkbox>
+                <button mat-raised-button [disabled]="this.active_clear_database === false ? true : null" (click)="openDialogClearDatabase()">Clear database</button>
+              </div>
+
+              <div class="col-three">
+                <div class="auto_random_text">
+                  <div class="text">Auto Random</div>
+                </div>
+                <div class="auto_random_rounds">
+                  <mat-form-field>
+                    <input matInput placeholder="Random rounds" [(ngModel)]="auto_random_rounds">
+                  </mat-form-field>
+                </div>
+                <div class="preloader">
+                  <div class="auto_txt" (click)="activeAutoRandom()" *ngIf="autoStatusActive">Auto</div>
+                  <div class="auto_txt" (click)="activeAutoRandom()" *ngIf="autoStatusActive === false">Unable</div>
+
+                  <div class="spinner" (click)="activeAutoRandom()" [ngClass]="{spinner_active: autoStatusActive}"></div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="sub-row-three">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

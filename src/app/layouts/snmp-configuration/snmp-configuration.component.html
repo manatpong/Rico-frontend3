@@ -1,0 +1,60 @@
+<div class="warpper">
+
+  <div class="col-one">
+    <div class="row-one">
+      <div class="row-one-col-one">
+        <div class="text">Menu: SNMP Configuration</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="text">XSOS-288</div>
+      </div>
+    </div>
+
+    <div class="row-two">
+      <div class="container">
+        <div class="inner-container">
+          <div class="container-col-one">
+            <div class="text">SNMP:
+              <div class="sub-text"> Monitor the device's status using SNMP</div>
+            </div>
+          </div>
+          <div class="container-col-two">
+            <div class="container-col-two-row-one">
+              <div class="can-toggle">
+                <input id="a" type="checkbox">
+                <label for="a">
+                  <div class="can-toggle__switch" data-checked="On" data-unchecked="Off"></div>
+                </label>
+              </div>
+            </div>
+            <div class="container-col-two-row-two">
+              <div class="text">SNMP</div>
+            </div>
+            <div class="container-col-two-row-three">
+              <div class="text">Version: v3 only</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-two">
+    <div class="container">
+      <app-snmp-v3-users></app-snmp-v3-users>
+    </div>
+  </div>
+
+  <div class="col-three">
+    <div class="container">
+      <app-snmp-traps-receivers></app-snmp-traps-receivers>
+    </div>
+  </div>
+
+  <div class="col-four">
+    <div class="container">
+      <app-snmp-traps></app-snmp-traps>
+    </div>
+  </div>
+
+</div>

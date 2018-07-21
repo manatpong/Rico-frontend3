@@ -1,0 +1,215 @@
+<div class="warpper">
+
+  <div class="col-one">
+
+    <div class="row-one">
+      <div class="row-one-col-one">
+        <div class="text">Menu: Port Connection</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="text">XSOS-288</div>
+      </div>
+    </div>
+
+    <div class="row-three">
+      <div class="container">
+        <div class="sub-container">
+
+          <div class="container-row-one">
+            <div class="row-header-col-one">
+              <div class="inner-container">
+                <div class="text">Humidity</div>
+              </div>
+            </div>
+            <div class="row-header-col-two">
+              <div class="text">50%</div>
+            </div>
+          </div>
+
+          <div class="container-row-two">
+            <div class="icon-container">
+              <mat-icon>ac_unit</mat-icon>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row-two">
+      <div class="container">
+        <div class="sub-container">
+
+          <div class="container-row-one">
+            <div class="row-header-col-one">
+              <div class="inner-container">
+                <div class="text">Temperature</div>
+              </div>
+            </div>
+            <div class="row-header-col-two">
+              <div class="text">35 ℃</div>
+            </div>
+            <div class="row-header-col-three">
+              <div class="text">95 ℉</div>
+            </div>
+          </div>
+
+          <div class="container-row-two">
+            <div class="icon-container">
+              <mat-icon>whatshot</mat-icon>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row-four">
+      <div class="container">
+        <div class="sub-container">
+
+          <div class="container-row-one">
+            <div class="row-header-col-one">
+              <div class="inner-container">
+                <div class="text" *ngIf="this.completion !== undefined && this.completion === 100">Completed</div>
+                <div class="text" *ngIf="this.completion !== undefined && this.completion !== 100 && this.current_action === 'connect'">Connect</div>
+                <div class="text" *ngIf="this.completion !== undefined && this.completion !== 100 && this.current_action === 'disconnect'">Disconnect</div>
+              </div>
+            </div>
+            <div class="row-header-col-two">
+              <div class="text" *ngIf="this.completion !== undefined">{{ this.completion }}%</div>
+            </div>
+          </div>
+
+          <div class="container-row-two">
+            <div class="icon-container">
+              <mat-icon *ngIf="this.completion === 100 || this.completion === undefined">settings_input_component</mat-icon>
+              <div *ngIf="this.completion !== undefined && this.completion !== 100" class="spinner-container">
+                <mat-spinner class="spinner" [diameter]="45"></mat-spinner>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row-five">
+      <div class="container">
+        <div class="sub-container">
+
+          <div class="container-row-one">
+            <div class="row-header-col-one">
+              <div class="inner-container">
+                <div class="text">Timing</div>
+              </div>
+            </div>
+            <div class="row-header-col-two">
+              <div class="text" *ngIf="this.completion_time !== null && this.completion_time !== undefined">{{ this.completion_time }} sec</div>
+            </div>
+          </div>
+
+          <div class="container-row-two">
+            <div class="icon-container">
+              <mat-icon>access_alarm</mat-icon>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-two">
+    <div class="sub-col-one">
+      <div class="container">
+        <app-east-port></app-east-port>
+      </div>
+    </div>
+
+    <div class="sub-col-two">
+      <div class="container">
+        <app-west-port></app-west-port>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-three-admin" *ngIf="enable_debug === true">
+    <div class="sub-row-one">
+      <app-sequence-table></app-sequence-table>
+    </div>
+
+    <div class="sub-row-two">
+      <div class="container">
+        <div class="row-one">
+          <div class="button-container">
+            <div class="button-row-one">
+              <div [ngClass]="isActiveConnectStatus()"></div>
+            </div>
+            <div class="button-row-two">
+              <button mat-raised-button class="button-inside-container" [disabled]="unlockConnect() === false ? true : null" (click)="createConnect()">
+                <div class="text">Connect</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-two">
+          <div class="button-container">
+            <div class="button-row-one">
+              <div [ngClass]="isActiveDisconnectStatus()"></div>
+            </div>
+            <div class="button-row-two">
+              <button mat-raised-button class="button-inside-container" [disabled]="unlockDisconnect() === false ? true : null" (click)="createDisconnect()">
+                <div class="text">Disconnect</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-row-three">
+      <div class="sub-row-three-col-one">
+        <app-error-dialog></app-error-dialog>
+      </div>
+      <div class="sub-row-three-col-two">
+        <app-error-reset></app-error-reset>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-three-user" *ngIf="enable_debug === false">
+    <div class="sub-row-one">
+      <div class="container">
+        <div class="row-one">
+          <div class="button-container">
+            <div class="button-row-one">
+              <div [ngClass]="isActiveConnectStatus()"></div>
+            </div>
+            <div class="button-row-two">
+              <button mat-raised-button class="button-inside-container" [disabled]="unlockConnect()" (click)="createConnect()">
+                <div class="text">Connect</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-two">
+          <div class="button-container">
+            <div class="button-row-one">
+              <div [ngClass]="isActiveDisconnectStatus()"></div>
+            </div>
+            <div class="button-row-two">
+              <button mat-raised-button class="button-inside-container" [disabled]="unlockDisconnect()" (click)="createDisconnect()">
+                <div class="text">Disconnect</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

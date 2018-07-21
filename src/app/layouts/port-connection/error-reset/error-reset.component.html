@@ -1,0 +1,18 @@
+<div class="warpper">
+  <div class="container" *ngIf="this.operation_data !== null && this.operation_data['error'] !== null">
+  <!-- <div class="container" > -->
+      <!-- <div  matTooltipPosition="above">Continue</div> -->
+    <button mat-fab (click)="errorReset(1)" [matTooltip]="showBtnDesc(1)">
+      
+      <mat-icon aria-label="continue sequence">play_arrow</mat-icon>
+    </button>
+
+    <button mat-fab (click)="errorReset(2)" [matTooltip]="showBtnDesc(2)">
+      <mat-icon aria-label="restart sequence">refresh</mat-icon>
+    </button>
+
+    <button mat-fab (click)="errorReset(3)" [matTooltip]="showBtnDesc(3)">
+      <mat-icon aria-label="cancel all sequence">close</mat-icon>
+    </button>
+  </div>
+</div>

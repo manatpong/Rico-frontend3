@@ -1,1 +1,2 @@
-# Rico-frontend3
+# Rico-Frontend-2
+Rico frontend with Angular 6

@@ -1,0 +1,16 @@
+<div class="warpper">
+  <div class="container">
+
+    <div class="row-one">
+      <div class="date-container">
+        <input [min]="min_date" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" placeholder="Date Time" [(ngModel)]="datetime">
+        <mat-icon [owlDateTimeTrigger]="dt2">today</mat-icon>
+        <owl-date-time #dt2></owl-date-time>
+      </div>
+    </div>
+
+    <div class="row-two">
+      <button mat-raised-button (click)="addQueue()" [disabled]="validateButton()">Add Queue</button>
+    </div>
+  </div>
+</div>

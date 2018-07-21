@@ -1,0 +1,38 @@
+<div class="warpper">
+  <div class="container">
+    <div class="col-one">
+      <div class="text">Appliance</div>
+    </div>
+    <div class="col-two">
+      <div class="sub-col-one">
+        <div class="sub-row-one">
+          <button class="button" mat-raised-button (click)="openDialogClearDatabase('Shutdown')">
+            <!-- <div class="icon_btn"></div> -->
+            
+            <mat-icon class="icon-spacer">power_settings_new</mat-icon> Shut down
+          </button>
+        </div>
+        <div class="sub-row-two">
+          <div class="text">
+            
+            Shutdown system</div>
+        </div>
+      </div>
+      <div class="sub-col-two">
+        <div class="sub-row-one">
+          <button class="button" mat-raised-button (click)="openDialogClearDatabase('Restart')">
+            <!-- <div class="icon_btn"></div> -->
+            
+            <mat-icon class="icon-spacer">restore</mat-icon> Restart
+          </button>
+        </div>
+        <div class="sub-row-two">
+          <div class="text">
+            
+            Restart system</div>
+        </div>
+      </div>
+      <div class="sub-col-three"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="warpper">
+
+  <div class="col-one">
+    <div class="row-one">
+      <div class="row-one-col-one">
+        <div class="text">Menu: SMTP Configuration</div>
+      </div>
+      <div class="row-one-col-two">
+        <div class="text">XSOS-288</div>
+      </div>
+    </div>
+
+    <div class="row-two">
+      <div class="container">
+        <div class="inner-container">
+          <div class="container-col-one">
+            <div class="text">Authentication:
+              <div class="sub-text">For enhanced security</div>
+            </div>
+          </div>
+          <div class="container-col-two">
+            <div class="container-col-two-row-one">
+              <div class="can-toggle">
+                <input id="auth_enable" type="checkbox">
+                <label for="auth_enable">
+                  <div class="can-toggle__switch" data-checked="On" data-unchecked="Off"></div>
+                </label>
+              </div>
+            </div>
+            <div class="container-col-two-row-two">
+              <div class="text">Use Authentication</div>
+            </div>
+            <!-- <div class="container-col-two-row-three">
+                <div class="text">Version: v3 only</div>
+              </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row-three">
+      <div class="container">
+        <div class="inner-container">
+          <div class="container-col-one">
+            <div class="text">TLS:
+              <div class="sub-text">Internet Security</div>
+            </div>
+          </div>
+          <div class="container-col-two">
+            <div class="container-col-two-row-one">
+              <div class="can-toggle">
+                <!-- <input id="a" type="checkbox">
+                <label for="a">
+                  <div class="can-toggle__switch" data-checked="On" data-unchecked="Off"></div>
+                  
+                </label> -->
+                <!-- <mat-button-toggle-group #group="matButtonToggleGroup">
+                    <mat-button-toggle value="TLS">
+                      <span class="text">TLS</span>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="SSL">
+                      <span class="text">SSL</span>
+                    </mat-button-toggle>
+                  </mat-button-toggle-group> -->
+                <!-- <div class="example-selected-value">Selected value: {{group.value}}</div> -->
+                <input id="internet_protocol" type="checkbox">
+                <label for="internet_protocol">
+                  <div class="can-toggle__switch_tls" data-checked="TLS" data-unchecked="SSL"></div>
+                </label>
+              </div>
+            </div>
+            <div class="container-col-two-row-two">
+                <div class="text">Use Security</div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="col-two">
+    <div class="container">
+      <app-smtp-email-setting></app-smtp-email-setting>
+    </div>
+  </div>
+</div>

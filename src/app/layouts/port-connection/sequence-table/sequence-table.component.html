@@ -1,0 +1,62 @@
+<div class="warpper">
+  <div class="container">
+    <div class="inner-container">
+      <div class="header">
+        <div class="text">Sequence Table</div>
+      </div>
+      <div class="body">
+
+        <div class="table-header">
+          <div class="row-one">
+            <div class="text">No.</div>
+          </div>
+          <div class="row-two">
+            <div class="text">Sequence detail</div>
+          </div>
+          <div class="row-three">
+            <div class="text">Status</div>
+          </div>
+        </div>
+
+        <div class="table-body">
+          <div id="table" class="table" onload="autoScroll" *ngIf="this.sequence_data !== null">
+            <div class="table-col" *ngFor="let data of sequence_data; trackBy: trackByFn">
+
+              <div class="table-col progress-row" *ngIf="data.result === '2'">
+                <div class="table-row-one">
+                  <div class="text">{{ data.no }}</div>
+                </div>
+                <div class="table-row-two">
+                  <div class="text" *ngIf="data.result !== '-1' && data.enc !== ''">{{ data.description }}, position: {{ data.position }}, encoder: {{ data.enc }}</div>
+                  <div class="text" *ngIf="data.result !== '-1' && data.enc === ''">{{ data.description }}, position: {{ data.position }}, encoder: no encoder</div>
+                </div>
+                <div class="table-row-three">
+                  <div *ngIf="data.result === '2'">
+                    <mat-spinner class="custom-color" [diameter]="15"></mat-spinner>
+                  </div>
+                </div>
+              </div>
+
+              <div class="table-col" *ngIf="data.result !== '2'">
+                <div class="table-row-one">
+                  <div class="text">{{ data.no }}</div>
+                </div>
+                <div class="table-row-two">
+                  <div class="text" *ngIf="data.result !== '-1' && data.enc !== ''">{{ data.description }}, position: {{ data.position }}, encoder: {{ data.enc }}</div>
+                  <div class="text" *ngIf="data.result !== '-1' && data.enc === ''">{{ data.description }}, position: {{ data.position }}, encoder: no encoder</div>
+                  <div class="text" *ngIf="data.result === '-1'">{{ data.description }}, position: {{ data.position }}, encoder: {{ data.enc }}, err_id: {{ data.err_id}}</div>
+                </div>
+                <div class="table-row-three">
+                  <div class="text-pending" *ngIf="data.result === '0'">pending</div>
+                  <div class="text-success" *ngIf="data.result === '1'">&#10004;</div>
+                  <div class="text-failed" *ngIf="data.result === '-1'">&#10006;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

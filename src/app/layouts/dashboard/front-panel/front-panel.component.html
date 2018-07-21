@@ -1,0 +1,96 @@
+<div class="warpper">
+  <div class="container">
+
+    <div class="header">
+      <div class="text">Front Panel</div>
+    </div>
+
+    <div class="body">
+      <div class="header-col">
+        <div class="text">East Port</div>
+      </div>
+
+      <div class="port-col">
+        <div class="port-number-row">
+          <div class="number-container" *ngFor="let row of this.first_row">
+            <div class="number-block" *ngFor="let number of row">{{ number }}</div>
+          </div>
+        </div>
+        <div class="port-container-row">
+          <div class="port-container" *ngFor="let row of this.first_row">
+            <div id="E{{ port }}" class="available-port" [ngClass]="[isUnavailableEastPort(port), isConnectedEastPort(port), isOperationEast(port)]" *ngFor="let port of row"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-col">
+        <div class="port-number-row">
+          <div class="number-container" *ngFor="let row of this.second_row">
+            <div class="number-block" *ngFor="let number of row">{{ number }}</div>
+          </div>
+        </div>
+        <div class="port-container-row">
+          <div class="port-container" *ngFor="let row of this.second_row">
+            <div id="E{{ port }}" class="available-port" [ngClass]="[isUnavailableEastPort(port), isConnectedEastPort(port), isOperationEast(port)]" *ngFor="let port of row"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-col">
+        <div class="port-number-row">
+          <div class="number-container" *ngFor="let row of this.third_row">
+            <div class="number-block" *ngFor="let number of row">{{ number }}</div>
+          </div>
+        </div>
+        <div class="port-container-row">
+          <div class="port-container" *ngFor="let row of this.third_row">
+            <div id="E{{ port }}" class="available-port" [ngClass]="[isUnavailableEastPort(port), isConnectedEastPort(port), isOperationEast(port)]" *ngFor="let port of row"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-col">
+        <div class="text">West Port</div>
+      </div>
+
+      <div class="port-col">
+        <div class="port-number-row">
+          <div class="number-container" *ngFor="let row of this.first_row">
+            <div class="number-block" *ngFor="let number of row">{{ number }}</div>
+          </div>
+        </div>
+        <div class="port-container-row">
+          <div class="port-container" *ngFor="let row of this.first_row">
+            <div id="W{{ port }}" class="available-port" [ngClass]="[isUnavailableWestPort(port), isConnectedWestPort(port), isOperationWest(port)]" *ngFor="let port of row"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-col">
+        <div class="port-number-row">
+          <div class="number-container" *ngFor="let row of this.second_row">
+            <div class="number-block" *ngFor="let number of row">{{ number }}</div>
+          </div>
+        </div>
+        <div class="port-container-row">
+          <div class="port-container" *ngFor="let row of this.second_row">
+            <div id="W{{ port }}" class="available-port" [ngClass]="[isUnavailableWestPort(port), isConnectedWestPort(port), isOperationWest(port)]" *ngFor="let port of row"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-col">
+        <div class="port-number-row">
+          <div class="number-container" *ngFor="let row of this.third_row">
+            <div class="number-block" *ngFor="let number of row">{{ number }}</div>
+          </div>
+        </div>
+        <div class="port-container-row">
+          <div class="port-container" *ngFor="let row of this.third_row">
+            <div id="W{{ port }}" class="available-port" [ngClass]="[isUnavailableWestPort(port), isConnectedWestPort(port), isOperationWest(port)]" *ngFor="let port of row"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="inner-container">
+    <div class="header-col">
+      <div class="text">West Port</div>
+    </div>
+
+    <div class="port-col">
+      <div class="port-number-row">
+        <div class="number-container" *ngFor="let row of this.first_row; trackBy: trackByFnRow">
+          <div class="number-block" *ngFor="let number of row; trackBy: trackByFnNum">{{ number }}</div>
+        </div>
+      </div>
+      <div class="port-container-row">
+        <div class="port-container" *ngFor="let row of this.first_row; trackBy: trackByFnRow">
+          <div id="{{ port }}" class="available-port" [ngClass]="[isSelectedPort(port), isConnectedPort(port)]" *ngFor="let port of row; trackBy: trackByFnRow" [matTooltip]="pushDescription(port)" matTooltipPosition="above" (click)="selectPort($event)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="port-col">
+      <div class="port-number-row">
+        <div class="number-container" *ngFor="let row of this.second_row; trackBy: trackByFnRow">
+          <div class="number-block" *ngFor="let number of row; trackBy: trackByFnNum">{{ number }}</div>
+        </div>
+      </div>
+      <div class="port-container-row">
+        <div class="port-container" *ngFor="let row of this.second_row; trackBy: trackByFnRow">
+          <div id="{{ port }}" class="available-port" [ngClass]="[isSelectedPort(port), isConnectedPort(port)]" *ngFor="let port of row; trackBy: trackByFnRow" [matTooltip]="pushDescription(port)" matTooltipPosition="above" (click)="selectPort($event)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="port-col">
+      <div class="port-number-row">
+        <div class="number-container" *ngFor="let row of this.third_row; trackBy: trackByFnRow">
+          <div class="number-block" *ngFor="let number of row; trackBy: trackByFnNum">{{ number }}</div>
+        </div>
+      </div>
+      <div class="port-container-row">
+        <div class="port-container" *ngFor="let row of this.third_row; trackBy: trackByFnRow">
+          <div id="{{ port }}" class="available-port" [ngClass]="[isSelectedPort(port), isConnectedPort(port)]" *ngFor="let port of row; trackBy: trackByFnRow" [matTooltip]="pushDescription(port)" matTooltipPosition="above" (click)="selectPort($event)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
