@@ -1,0 +1,341 @@
+.warpper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    .container_inner {
+        display: flex;
+        flex-direction: column;
+        width: 98%;
+        height: 90%;
+        .header {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        height: 10%;
+        border-left: 4px solid #1457ba;
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+        box-sizing: border-box;         /* Opera/IE 8+ */
+        .text {
+            padding-left: 10px;
+            font-size: 1.1vw;
+            font-weight: 500;
+            color: #3f51b5;
+        }
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: 100%;
+            margin-left: 5px;
+            mat-icon {
+                padding-top: 10px;
+                font-size: 12px;
+                color: #3f51b5;
+                cursor: default;
+            }
+        }
+        }
+        .body {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            height: 90%;
+            .body-table {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                .select-user {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 10%;
+                    margin-top: auto;
+                    background: blue;
+                }
+                .select-alert-setting {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 10%;
+                    margin-top: auto;
+                    background: green;
+                }
+                .email-alert-table {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 95%;
+                    margin-top: auto;
+                    .container {
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                        .col-one {
+                            display: flex;
+                            align-items: center;
+                            width: 100%;
+                            height: 10%;
+                            border-left: 4px solid #1457ba;
+                            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+                            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                            box-sizing: border-box;         /* Opera/IE 8+ */
+                            .text {
+                                padding-left: 10px;
+                                font-size: 20px;
+                                // font-weight: 500;
+                                color: #3f51b5;
+                            }
+                        }
+                        .col-two {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            height: 80%;
+                            margin: auto;
+                            .table-container {
+                                    width: 100%;
+                                    height: 100%;
+                                    // overflow: auto;
+                                    table {
+                                      width: 100%;
+                                      height: 90%;
+                                      border-left: solid 1px #d8d8d8;
+                                      border-right: solid 1px #d8d8d8;            
+                                      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+                                      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                                      box-sizing: border-box;         /* Opera/IE 8+ */
+                                      border-top-left-radius: 4px;
+                                      border-top-right-radius: 4px;
+                                      box-shadow: none;
+                                      .button-container {
+                                        margin-right: 10%;
+                                        margin-left: auto;
+                                        button {
+                                          width: auto;
+                                          height: 30px;
+                                          margin-top: 2px;
+                                          margin-bottom: 2px;
+                                          border-radius: 25px;
+                                          background: #3f51b5;
+                                          cursor: pointer;
+                                          .text {
+                                              padding-bottom: 13%;
+                                              font-size: 12px;
+                                              // font-size: 1vw;
+                                              color: #fff;
+                                          }
+                                        }
+                                      }
+                                      
+                                      tr.mat-header-row {
+                                        height: 80px;
+                                      }
+                                      tr.mat-row {
+                                        height: 30px;
+                                      }
+                                      th:first-child {
+                                        font-size: 12px;
+                                        color: #fff;
+                                        border-top-left-radius: 4px;
+                                        background: #3f51b5;
+                                      }
+                                      th:nth-child(2) {
+                                        font-size: 12px;
+                                        color: #fff;
+                                        background: #3f51b5;
+                                      }
+                                      th:nth-child(3) {
+                                        font-size: 12px;
+                                        color: #fff;
+                                        background: #3f51b5;
+                                      }
+                                      th:nth-child(4) {
+                                        font-size: 12px;
+                                        color: #fff;
+                                        background: #3f51b5;
+                                      }
+                                      th:last-child {
+                                        font-size: 12px;
+                                        color: #fff;
+                                        border-top-right-radius: 4px;
+                                        background: #3f51b5;
+                                      }
+                                      td {
+                                        font-size: 12px;
+                                        font-size: 0.8vw;
+                                      }
+                                      tr:hover {
+                                        background: #eeeeea;
+                                        cursor: pointer;
+                                      }
+                                      td:first-child {
+                                        width: 7%;
+                                      }
+                                      td:nth-child(2) {
+                                        align-items: center;
+                                        width: 15%;
+                                        height: auto;
+                                        
+                                      }
+                                      td:nth-child(3) {
+                                        align-items: center;
+                                        width: 15%;
+                                        height: auto;
+                                        
+                                      }
+                                      td:nth-child(4) {
+                                        align-items: center;
+                                        width: 20%;
+                                        height: auto;
+                                        
+                                      }
+                                      td:last-child {
+                                        width: 43%;
+                                        .level_container {
+                                            display: flex;
+                                            flex-direction: row;
+                                            width: 100%;
+                                            height: auto;
+                                            .text {
+                                                display: flex;
+                                                flex-direction: column;
+                                                justify-content: center;
+                                                width: 80%;
+                                                .level-margin {
+                                                    margin-right: 10px;
+                                                  }
+                                                .check-all-margin {
+                                                    margin-left: 20px;
+                                                }
+                                                .check_box_container {
+                                                    display: flex;
+                                                    flex-direction: row;
+                                                    height: 100%;
+                                                    width: 100%;
+                                                    .one_checkbox {
+                                                        display: flex;
+                                                        flex-direction: column;
+                                                        justify-content: center;
+                                                        height: 100%;
+                                                        width: 35px;
+                                                    }
+                                                }
+                                            }
+                                           
+                                        }
+                                      }
+                                    }
+                                    .head_level {
+                                      display: flex;
+                                      height: 100%;
+                                      .each_level {
+                                        width: 25px;
+                                        margin-top: 55px;
+                                        margin-right: 10px;
+                                      }
+                                    }
+                            }  
+                        }
+                    }
+                    .table-container {
+                        overflow: auto;
+                    }
+                }
+            }
+            .body-menu {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 15%;
+                margin-top: 4%;
+                .button-container {
+                    display:flex;
+                    width: 25%;
+                    height: auto;
+                    button {
+                        width: 45%;
+                        height: auto;
+                        margin: auto;
+                        border-radius: 20px;
+                        background: #3f51b5;
+                        color: #fff;
+                    }
+                }
+            }
+
+            
+        }
+    }
+  }
+  .one_checkbox {
+    position: relative;
+  }
+
+  .lv {
+    transform: rotate(-45deg);
+  }
+
+  .rotate {
+      display:flex;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    position: static;
+  }
+
+  .rotate .head_level {
+    // transform: rotate(-90.0deg);
+    // margin-left: -10em;
+    //      margin-right: -10em;
+  }
+
+//   .head_level {
+//     display: flex;
+//   }
+
+  .circle {
+      width: 25px;
+      height: 25px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      
+      .check_mark {
+        font-size: 16px;
+        padding-left: 6px;
+        font-weight: 500;
+        color: #fff;
+        opacity: 0;
+      }
+  }
+  .circle:hover {
+      background: rgb(236, 235, 235);
+      .check_mark {
+        opacity: 1;
+      }
+  }
+
+  .checked {
+    background-color: #66bb6a;
+      border-color: #66bb6a;
+    .check_mark {
+        opacity: 1;
+    }
+  }
+  .checked:hover {
+    background-color: #4c9450;
+      border-color: #4c9450;
+  }

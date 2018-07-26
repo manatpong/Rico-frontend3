@@ -77,6 +77,7 @@ export class SmtpConfigurationComponent implements OnInit {
 
   sendEmailSetting() {
     // 
+    this.clear_data = true;
     if(this.use_authentication == 0) {
       this.set_username = null;
       this.set_password = null;

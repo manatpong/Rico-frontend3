@@ -50,36 +50,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="row-three">
-      <div class="container">
-        <div class="inner-container">
-          <div class="container-col-one">
-            <div class="text">Protocol:
-              <div class="sub-text">Internet Security</div>
-            </div>
-          </div>
-          <div class="container-col-two">
-            <div class="container-col-two-row-one">
-              <div class="can-toggle">
-                <input id="internet_protocol" type="checkbox">
-                <label for="internet_protocol">
-                  <div class="can-toggle__switch_tls" data-checked='TLS' data-unchecked='SSL' (click)="toggleInternetSecurity()"></div>
-                </label>
-              </div>
-              <div class="can-toggle">
-                <input id="auth_enable" type="checkbox">
-                <label for="auth_enable">
-                  <div class="can-toggle__switch" data-checked="On" data-unchecked="Off"></div>
-                </label>
-              </div>
-            </div>
-            <div class="container-col-two-row-two">
-                <div class="text">Use Protocol</div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+
     <div class="row-four">
       <div class="container">
         <div class="inner-container">
@@ -175,17 +146,6 @@
                 </div>
               </div>
       
-              <div class="body-table-row-one">
-                <div class="btable-col-one-row">
-                  <div class="text">
-                    &nbsp;
-                  </div>
-                </div>
-                <div class="btable-col-two-row">
-                  &nbsp;
-                </div>
-              </div>
-      
               <div class="body-menu">
                 <div class="button-container">
                   <button mat-raised-button (click)="sendEmailSetting()">
@@ -202,6 +162,13 @@
       
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="col-three">
+    <div class="container">
+      <!-- <app-smtp-email-setting></app-smtp-email-setting> -->
+      <app-smtp-email-alert-setting></app-smtp-email-alert-setting>
     </div>
   </div>
 </div>

@@ -300,11 +300,11 @@ export class DebuggingComponent implements OnInit {
               const prob = Math.floor((connected_port / available_port) * 100);
               const random_number = Math.floor(Math.random() * 100);
               if (random_number > prob) {
-                //this._debuggingService.sendRandom('connect');
+                this._debuggingService.sendRandom('connect');
                 this.auto_random_rounds = this.auto_random_rounds - 1;
                 console.log('call connect with prob', prob, ' number', this.auto_random_rounds)
               } else {
-                //this._debuggingService.sendRandom('disconnect');
+                this._debuggingService.sendRandom('disconnect');
                 this.auto_random_rounds = this.auto_random_rounds - 1;
                 console.log('call disconnect with prob =', prob, ' number', this.auto_random_rounds)
               }
@@ -317,7 +317,7 @@ export class DebuggingComponent implements OnInit {
         }
 
       });
-      if (this.auto_random_rounds === 0) {
+      if (this.auto_random_rounds == 0) {
         this._debuggingDataService.getAutoRandom(false);
       }
       await this.delay(2000);
