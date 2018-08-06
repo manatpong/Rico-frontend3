@@ -20,6 +20,62 @@ export class PortService {
 
     constructor(private _http: Http) { }
 
+    getPorts() {
+
+        const headers: any = new Headers({ 'Content-Type': 'application/json' });
+        const options: any = new RequestOptions({ headers: headers });
+        const return_object = [];
+
+        return this._http.get(this.ROOT_URL + 'ports/index.php', { headers: headers })
+            .toPromise().then((response: any) => {
+                const return_object = JSON.parse(response._body);
+
+                return return_object;
+
+            }).catch((error: any) => {
+                // ERROR FROM SERVER
+                if (error.status && error.status !== 0) {
+                    console.error('GET CONNECTED PORT ERROR ' + error.status, Observable.throw(new Error(error.status)));
+                    return ({ status: 'error', error: 'ERROR ' + error.status });
+
+                    // ERROR FROM CLIENT
+                } else {
+                    console.error('GET CONNECTED PORT ERROR 500 Internal Server');
+                    return ({ status: 'error', error: 'ERROR 500' });
+                }
+
+            });
+
+    }
+
+    getPortStatus() {
+
+        const headers: any = new Headers({ 'Content-Type': 'application/json' });
+        const options: any = new RequestOptions({ headers: headers });
+        const return_object = [];
+
+        return this._http.get(this.ROOT_URL + 'ports/port_status/index.php', { headers: headers })
+            .toPromise().then((response: any) => {
+                const return_object = JSON.parse(response._body);
+
+                return return_object;
+
+            }).catch((error: any) => {
+                // ERROR FROM SERVER
+                if (error.status && error.status !== 0) {
+                    console.error('GET CONNECTED PORT ERROR ' + error.status, Observable.throw(new Error(error.status)));
+                    return ({ status: 'error', error: 'ERROR ' + error.status });
+
+                    // ERROR FROM CLIENT
+                } else {
+                    console.error('GET CONNECTED PORT ERROR 500 Internal Server');
+                    return ({ status: 'error', error: 'ERROR 500' });
+                }
+
+            });
+
+    }
+
     getConnectedPort() {
 
         const headers: any = new Headers({ 'Content-Type': 'application/json' });
@@ -238,6 +294,7 @@ export class PortService {
             });
 
     }
+
 
 
 }

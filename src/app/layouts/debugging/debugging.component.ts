@@ -70,6 +70,7 @@ export class DebuggingComponent implements OnInit {
   total_queue: number;
   timerInterval: any;
   auto_random_rounds: number;
+  showError: boolean = false;
 
   ngOnInit() {
 
@@ -272,16 +273,22 @@ export class DebuggingComponent implements OnInit {
 
   ///////// auto random //////////
   async activeAutoRandom() {
-    if (this.autoStatusActive) {
-      this._debuggingDataService.getAutoRandom(false);
+    if(this.auto_random_rounds == 0 || this.auto_random_rounds == null) {
+      this.showError = true;
     } else {
-      this._debuggingDataService.getAutoRandom(true);
+      this.showError = false;
+      if (this.autoStatusActive) {
+        this._debuggingDataService.getAutoRandom(false);
+      } else {
+        this._debuggingDataService.getAutoRandom(true);
+      }
+      this.autoRandom();
     }
-    this.autoRandom()
   }
 
   async autoRandom() {
 
+    
     while (this.autoStatusActive) {
       this._connectionQueueService.getAprroveQueue().then((data) => {
         this._debuggingDataService.fetchTotalQueue(_.size(data));
@@ -289,7 +296,7 @@ export class DebuggingComponent implements OnInit {
           this._connectionQueueService.getAprroveQueue().then((data) => {
             this._debuggingDataService.fetchTotalQueue(_.size(data));
           });
-         // console.log('total > 0', 'value', this.total_queue)
+          // console.log('total > 0', 'value', this.total_queue)
         } else {
           this._portService.getConnectedPort().then((data) => {
 
@@ -302,26 +309,28 @@ export class DebuggingComponent implements OnInit {
               if (random_number > prob) {
                 this._debuggingService.sendRandom('connect');
                 this.auto_random_rounds = this.auto_random_rounds - 1;
-                console.log('call connect with prob', prob, ' number', this.auto_random_rounds)
+                console.log('call connect with prob', prob, ' number', this.auto_random_rounds);
               } else {
                 this._debuggingService.sendRandom('disconnect');
                 this.auto_random_rounds = this.auto_random_rounds - 1;
-                console.log('call disconnect with prob =', prob, ' number', this.auto_random_rounds)
+                console.log('call disconnect with prob =', prob, ' number', this.auto_random_rounds);
               }
-              
-            })
-          })
+
+            });
+          });
 
 
-          console.log(this.total_queue)
+          console.log(this.total_queue);
         }
 
       });
-      if (this.auto_random_rounds == 0) {
+      if (this.auto_random_rounds === 0) {
         this._debuggingDataService.getAutoRandom(false);
+        break;
       }
       await this.delay(2000);
     }
+    // this._debuggingDataService.getAutoRandom(false);
   }
   ////////////
 }

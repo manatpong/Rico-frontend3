@@ -2,10 +2,10 @@
   <div class="container">
     
     <div class="header">
-      <div class="text">Humidity chart</div>
+      <div class="text">Disk Space</div>
     </div>
     
-    <div class="body">
+    <!-- <div class="body">
       <div style="display: block; width: 100%; height: 100%;">
         <canvas baseChart width=1:2
             [datasets]="lineChartData"
@@ -16,7 +16,14 @@
             [chartType]="lineChartType">
         </canvas>
       </div>
+    </div> -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="outbout">
+    <div class="netdata-container-with-legend" id="chart_disk_space__" data-netdata="disk_space._" 
+    data-width="100%" data-height="250px" data-dygraph-valuerange="[null, null]" data-before="0" 
+    data-after="-480" data-id="arm_disk_space__" data-colors="" data-decimal-digits="-1" role="application" 
+    ></div>
     </div>
-
+    </div>
   </div>
 </div>

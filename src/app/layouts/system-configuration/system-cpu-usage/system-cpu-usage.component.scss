@@ -83,5 +83,13 @@
                 }
             }
         }
+        .tab-pane {
+            justify-content: center;
+            align-items: center;
+        }
+        .chart_canvas {
+            margin: auto;
+            width: 80%;
+        }
     }
 }

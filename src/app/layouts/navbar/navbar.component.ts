@@ -1,3 +1,4 @@
+import { PageDataService } from './../../@shared/service/page_data.service';
 import { DebuggingDataService } from './../debugging/@shared/services/debugging_data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -23,7 +24,8 @@ export class NavbarComponent implements OnInit {
     private _authenticationService: AuthenticationService,
     private _debuggingService: DebuggingService,
     private _menuDataService: MenuDataService,
-    private _debuggingDataService: DebuggingDataService) { }
+    private _debuggingDataService: DebuggingDataService,
+    private _pageDataService: PageDataService) { }
 
   current_robot_mode: string;
   current_robot_state: string;
@@ -49,6 +51,12 @@ export class NavbarComponent implements OnInit {
       this.fetchRobotState();
     }, 1500);
 
+    setInterval(this.checkPageFocus, 500);
+  }
+  
+  checkPageFocus() {
+    // console.log(document.hasFocus());
+    this._pageDataService.changeFocusPage(document.hasFocus())
   }
 
   fetchRobotMode() {

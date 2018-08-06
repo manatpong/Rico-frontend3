@@ -8,6 +8,7 @@ export class DebuggingDataService {
 
     private totalQueue = new BehaviorSubject<number>(null)
     private autoRandomActive = new BehaviorSubject<boolean>(false);
+    
 
     total_queue = this.totalQueue.asObservable();
     auto_active = this.autoRandomActive.asObservable();
@@ -19,4 +20,6 @@ export class DebuggingDataService {
     getAutoRandom(auto_active: boolean) {
         this.autoRandomActive.next(auto_active);
     }
+
+    
 }

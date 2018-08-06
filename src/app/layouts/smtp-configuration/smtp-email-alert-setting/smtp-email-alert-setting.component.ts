@@ -95,10 +95,7 @@ export class SmtpEmailAlertSettingComponent implements OnInit {
 
     const find_index = this.level.findIndex(object => object['username'] === username)
     let boolean_value = this.level[find_index]['level'][index];
-
-    this._smtpConfigurationService.sendSettingAlert(username,index).then(() => {
-      console.log('update')
-    })
+    
     for (let i = 0; i <= 7; i++) {
       if (i < index) {
         this.level[find_index]['level'][i] = true;
@@ -109,8 +106,14 @@ export class SmtpEmailAlertSettingComponent implements OnInit {
     }
     if(this.level[find_index]['level'][index] === true) {
       this.level[find_index]['level'][index] = false;
+      this._smtpConfigurationService.sendSettingAlert(username,index-1).then(() => {
+        console.log('update')
+      })
     } else {
       this.level[find_index]['level'][index] = true;
+      this._smtpConfigurationService.sendSettingAlert(username,index).then(() => {
+        console.log('update')
+      })
     }
 
   }

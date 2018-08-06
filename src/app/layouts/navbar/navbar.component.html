@@ -34,6 +34,9 @@
       <a id="alarm_history" mat-list-item routerLink="/alarm_history" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'alarm_history' ? 'selected-menu' : null">
         <mat-icon class="icon-spacer">priority_high</mat-icon>Alarm History</a>
 
+      <a id="camera" mat-list-item routerLink="/camera" (click)="selectMenu($event)" [ngClass]="this.selected_menu == 'camera' ? 'selected-menu' : null">
+        <mat-icon class="icon-spacer">video_label</mat-icon>Camera</a>
+
       <div class="menu-list-item">
         <div class="text">Configurations</div>
       </div>

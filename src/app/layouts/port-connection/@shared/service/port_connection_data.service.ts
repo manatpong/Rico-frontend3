@@ -22,6 +22,9 @@ export class PortConnectionDataService {
     private selectedPair = new BehaviorSubject<any>(null);
     private operationTime = new BehaviorSubject<number>(0);
 
+    private portStatus = new BehaviorSubject<any>(null);
+    private Status = new BehaviorSubject<any>(null);
+
     connected_port = this.portSource.asObservable();
     unavailable_port = this.unavailablePortSource.asObservable();
     unavailable_east_port = this.unavailableEastPortSource.asObservable();
@@ -38,7 +41,18 @@ export class PortConnectionDataService {
     current_selected_pair = this.selectedPair.asObservable();
     current_operation_time = this.operationTime.asObservable();
 
+    port_status = this.portStatus.asObservable();
+    status = this.Status.asObservable();
+
     constructor() { }
+
+    changePort(port_data: object) {
+        this.portStatus.next(port_data);
+    }
+
+    changePortStatus(status_port: object) {
+        this.Status.next(status_port);
+    }
 
     changePair(pair_data: object) {
 

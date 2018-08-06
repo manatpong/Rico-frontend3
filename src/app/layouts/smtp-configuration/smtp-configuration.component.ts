@@ -54,7 +54,7 @@ export class SmtpConfigurationComponent implements OnInit {
   }
 
   toggleAuth() {
-    if (this.use_authentication === 0) {
+    if (this.use_authentication == 0) {
       this.use_authentication = 1;
     } else {
       this.use_authentication = 0;

@@ -28,4 +28,5 @@ export class SystemCpuUsageComponent implements OnInit {
   ngOnInit() {
   }
 
+  ipa: string = '//192.168.60.220:19999';
 }

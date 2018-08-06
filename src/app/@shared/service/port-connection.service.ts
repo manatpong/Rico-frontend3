@@ -134,4 +134,31 @@ export class PortConnectionService {
 
     }
 
+    selectPort(username: string, position: string, no: any, unlock_time: number) {
+
+        const headers: any = new Headers({ 'Content-Type': 'application/json' });
+        const options: any = new RequestOptions({ headers: headers });
+        const params = {"username": username,"position" : position,"no": no,"unlock_time": unlock_time};
+
+        return this._http.post(this.ROOT_URL + 'ports/port_reserved/index.php', { headers: headers, params: params })
+            .toPromise().then((response: any) => {
+                const response_object = JSON.parse(response._body);
+
+                console.log(response_object);
+
+                return response_object;
+            }).catch((error: any) => {
+                // ERROR FROM SERVER
+                if (error.status && error.status !== 0) {
+                    console.error('POST CONNECTION ERROR ' + error.status, Observable.throw(new Error(error.status)));
+
+                    // ERROR FROM CLIENT
+                } else {
+                    console.error('POST CONNECTION HISTORY ERROR 500 Internal Server');
+                }
+
+            });
+
+    }
+
 }

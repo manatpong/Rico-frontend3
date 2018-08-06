@@ -98,6 +98,8 @@ export class TemperatureChartComponent implements OnInit {
     }
   ];
 
+  public ipa: string = '//192.168.60.220:19999';
+  public test_ip: any = '192.168.60.220:19999';
   ngOnInit() {
   }
 

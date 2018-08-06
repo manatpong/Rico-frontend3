@@ -1,6 +1,6 @@
 .warpper {
     width: 87vw;
-    height: 100%;
+    height: 92vh;
     .col-one {
       display: flex;
       flex-direction: row;
@@ -560,4 +560,8 @@
 #table::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #555555;
+}
+
+label {
+  font-weight: normal;
 }

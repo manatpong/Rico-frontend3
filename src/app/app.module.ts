@@ -113,6 +113,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { SystemRestartScheduleComponent } from './layouts/maintenance-configuration/system-restart-schedule/system-restart-schedule.component';
 import { CountdownTimerComponent } from './layouts/maintenance-configuration/countdown-timer/countdown-timer.component';
 import { SmtpEmailAlertSettingComponent } from './layouts/smtp-configuration/smtp-email-alert-setting/smtp-email-alert-setting.component';
+import { CameraComponent } from './layouts/camera/camera.component';
 
 export const appRoutes: Routes = [
   {
@@ -152,6 +153,11 @@ export const appRoutes: Routes = [
   {
     path: 'alarm_history',
     component: AlarmHistoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'camera',
+    component: CameraComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -236,6 +242,7 @@ export const appRoutes: Routes = [
     SystemRestartScheduleComponent,
     CountdownTimerComponent,
     SmtpEmailAlertSettingComponent,
+    CameraComponent,
   ],
   imports: [
     BrowserModule,
